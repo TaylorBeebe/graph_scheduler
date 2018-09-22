@@ -1,17 +1,28 @@
 import structure5.*;
 import java.util.Iterator;
 
+
+//Implement Breadth First Search
 class BFSComponentSize {
 
     public static <V,E> int BFS(Graph<V,E> g, V src) {
 	
 	Queue<V> todo = new QueueList<V>(); int count = 0;
+
 	g.visit(src); count++;
+
+	//Queue por implementing Breadth First Search in Graph
 	todo.enqueue(src); 
+
 	while (!todo.isEmpty()) {
+
 	    V node = todo.dequeue();  
+
 	    System.out.println(node);
+	    
 	    Iterator<V> neighbors = g.neighbors(node);
+
+	    //Finish current path before starting new
 	    while (neighbors.hasNext()) {
 		V next = neighbors.next();
 		if (!g.isVisited(next)) {
@@ -20,13 +31,14 @@ class BFSComponentSize {
 		}
 	    }
 	}
+	
 	return count;
     }
 
     // Main function used for testing
     public static void main(String[] args) {
 	
-	// Test an undirected graph
+	// Test Breadth First Search on an undirected graph
 	Graph<String,Integer> g = new GraphListUndirected<String,Integer>();
 	
 	g.add("A"); g.add("B"); g.add("C"); g.add("D"); g.add("E");
@@ -46,9 +58,8 @@ class BFSComponentSize {
 	
 	System.out.println("\n\n");
 
-	// Test a directed graph
+	// Test Breadth First Search on a directed graph
 	GraphListDirected<String, Integer> g =new GraphListDirected<String,Integer>();
-	
 	g.add("A"); g.add("B"); g.add("C"); g.add("D"); g.add("E"); g.add("F"); g.add("G"); g.add("H");
 	g.addEdge("A","B", 1);
 	g.addEdge("A","C", 1);
@@ -73,7 +84,6 @@ class BFSComponentSize {
 	  System.out.println("Number of vertices reachable from " + 
           v + ": " + BFS(g,v) );
 	  g.reset(); // "unvisit" each vertex
-	  
 	*/
 	
 	BFS(g, g.get("A"));
