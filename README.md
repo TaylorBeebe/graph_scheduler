@@ -1,6 +1,8 @@
 # graph_scheduler
 Uses directed graphs to schedule overlapping events such that no attendee has any conflicts
 
+Requires structure5 to compile located here: http://www.cs.williams.edu/~bailey/JavaStructures/Software.html
+
 BFSComponentSize.java: Performes a breadth first search on a graph
 
 DFSComponentSize.java: Performes a depth first search on a graph
